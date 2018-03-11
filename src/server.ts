@@ -4,8 +4,11 @@ import app from "./app";
 
 /**
  * Error Handler. Provides full stack - remove for production
+ * app.get("env") defaults to "development" value
  */
-app.use(errorHandler());
+if (app.get("env") === "development") {
+  app.use(errorHandler());
+}
 
 /**
  * Start Express server.

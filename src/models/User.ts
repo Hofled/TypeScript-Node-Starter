@@ -86,5 +86,5 @@ userSchema.methods.gravatar = function (size: number) {
 };
 
 // export const User: UserType = mongoose.model<UserType>('User', userSchema);
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model<UserModel>("User", userSchema);
 export default User;

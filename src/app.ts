@@ -16,7 +16,7 @@ import bluebird from "bluebird";
 const MongoStore = mongo(session);
 
 // Load environment variables from .env file, where API keys and passwords are configured
-dotenv.config({ path: ".env.example" });
+dotenv.config({ path: ".env.config" });
 
 // Controllers (route handlers)
 import * as homeController from "./controllers/home";
@@ -30,6 +30,8 @@ import * as passportConfig from "./config/passport";
 
 // Create Express server
 const app = express();
+
+app.set("env", process.env.DEVELOPMENT == "true" ? "development" : "production");
 
 // Connect to MongoDB
 const mongoUrl = process.env.MONGOLAB_URI;
